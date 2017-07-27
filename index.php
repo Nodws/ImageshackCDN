@@ -19,17 +19,13 @@ if($_POST){
  
     require_once('commandline.php');
     require_once('imageshack.class.php');
-  
-    $key = "3RLOMPZAf46be771005b17a762cd583276ed9434";
+  // sign up at: api.imageshack.us
+    $key = "YOUR KEY";
 
     $uploader = new ImageShackUploader($key, param('cookie'));
     $public = 'yes';
-    if (!$file)
-    {        
-      
+    if (!$file)    
         die();
-    }
- 
    $w=0;
  foreach($file[size] as $f){
     $ct = $file[type][$w];
@@ -51,24 +47,19 @@ if($_POST){
 			echo"<a href='$v[0]'><img src='$v[1]'></a>";
 		}
 	}
-}
-
+} //END IF POST
 ?>
  
-  <form name="sd" id="upform" enctype="multipart/form-data" action="" method="post">
+<form name="sd" id="upform" enctype="multipart/form-data" action="" method="post">
 <div id="files" class="container-fluid">
 	
 <div class="row form-group">
  <div class="col-md-6">Upload image <input type="file" name="media[]" class="imgup"></div>
  <div class='col-md-6 preview'> </div>
 </div>
-
-
 </div>
  <input type="submit" class="btn btn-primary" name="subi" value="Upload &raquo;"> 
   </form>
-  <div id="result"></div>
-
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
